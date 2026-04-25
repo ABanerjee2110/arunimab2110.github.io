@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arunima Banerjee — Business Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-muted: #6b6b65;
+    --ink-light: #a8a89f;
+    --paper: #f7f5f0;
+    --paper-warm: #ede9e0;
+    --accent: #2d5a3d;
+    --accent-light: #e8f0ea;
+    --accent2: #8b4513;
+    --gold: #c49a3c;
+    --border: rgba(26,26,24,0.12);
+    --border-strong: rgba(26,26,24,0.25);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    padding: 5rem 3rem 5rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 0.5px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--accent); }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.1; font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .hero-title {
+    font-size: 1rem; color: var(--ink-muted); font-weight: 300;
+    margin-bottom: 2.5rem; letter-spacing: 0.03em;
+  }
+  .hero-bio {
+    font-size: 0.95rem; color: var(--ink-muted); line-height: 1.8;
+    max-width: 440px; margin-bottom: 3rem;
+    border-left: 2px solid var(--accent); padding-left: 1.25rem;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
+  .tag {
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border: 0.5px solid var(--border-strong);
+    color: var(--ink-muted); border-radius: 999px;
+  }
+  .tag.accent { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.8rem 2rem; border-radius: 2px; text-decoration: none;
+    transition: all 0.2s; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-outline { background: transparent; color: var(--ink); border: 0.5px solid var(--border-strong); }
+  .btn-outline:hover { background: var(--paper-warm); }
+
+  .hero-right {
+    padding: 5rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--paper-warm);
+  }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 0.5px solid var(--border); margin-bottom: 2.5rem; }
+  .stat-cell {
+    background: var(--paper-warm); padding: 1.75rem 1.5rem;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600;
+    color: var(--ink); line-height: 1;
+  }
+  .stat-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-top: 0.4rem; }
+  .cert-strip { display: flex; flex-direction: column; gap: 0.75rem; }
+  .cert-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.82rem; color: var(--ink-muted);
+    padding: 0.6rem 0; border-bottom: 0.5px solid var(--border);
+  }
+  .cert-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+  /* SECTIONS */
+  section { padding: 6rem 3rem; }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--accent); }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 600; margin-bottom: 1rem; line-height: 1.2;
+  }
+  .section-sub { font-size: 0.95rem; color: var(--ink-muted); max-width: 560px; margin-bottom: 3.5rem; }
+
+  /* CASE STUDIES */
+  #work { background: #fff; border-top: 0.5px solid var(--border); }
+  .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 0.5px solid var(--border); }
+  .case-card {
+    background: #fff; padding: 2.5rem;
+    cursor: pointer; transition: background 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .case-card:hover { background: var(--paper); }
+  .case-num {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    color: var(--ink-light); margin-bottom: 1.5rem; display: block;
+  }
+  .case-domain {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 0.75rem;
+  }
+  .case-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; line-height: 1.3; }
+  .case-desc { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 1.5rem; line-height: 1.7; }
+  .case-metrics { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .metric-pill {
+    font-size: 0.78rem; font-weight: 500;
+    background: var(--accent-light); color: var(--accent);
+    padding: 0.3rem 0.75rem; border-radius: 2px;
+  }
+  .case-tools { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 0.5px solid var(--border); }
+  .tool-tag { font-size: 0.68rem; letter-spacing: 0.04em; color: var(--ink-light); background: var(--paper-warm); padding: 0.2rem 0.6rem; border-radius: 2px; }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(26,26,24,0.6); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 2rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--paper); max-width: 780px; width: 100%; max-height: 85vh;
+    overflow-y: auto; border-radius: 2px;
+    border: 0.5px solid var(--border-strong);
+  }
+  .modal-header { padding: 2.5rem 2.5rem 0; border-bottom: 0.5px solid var(--border); padding-bottom: 1.5rem; }
+  .modal-body { padding: 2.5rem; }
+  .modal-close {
+    float: right; font-size: 1.2rem; cursor: pointer; color: var(--ink-muted);
+    background: none; border: none; font-family: 'DM Sans', sans-serif; margin-top: -0.25rem;
+  }
+  .modal-section-title { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; margin-top: 1.5rem; }
+  .modal-body p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 0.75rem; }
+  .story-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); margin: 1.25rem 0; }
+  .story-cell { background: var(--paper-warm); padding: 1rem; }
+  .story-cell-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .story-cell-text { font-size: 0.8rem; color: var(--ink); line-height: 1.5; }
+  .outcome-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .outcome-list li { font-size: 0.88rem; color: var(--ink-muted); display: flex; gap: 0.75rem; align-items: flex-start; }
+  .outcome-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 0.85rem; margin-top: 0.1rem; }
+
+  /* ARTIFACTS */
+  #artifacts { background: var(--paper-warm); border-top: 0.5px solid var(--border); }
+  .artifacts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .artifact-card {
+    background: var(--paper); border: 0.5px solid var(--border);
+    padding: 1.75rem; border-radius: 2px; transition: border-color 0.2s;
+  }
+  .artifact-card:hover { border-color: var(--accent); }
+  .artifact-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .artifact-type { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .artifact-name { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .artifact-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
+  .artifact-btn {
+    margin-top: 1.25rem; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;
+    cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; padding: 0;
+  }
+
+  /* PROCESS MAP */
+  #process { background: #fff; border-top: 0.5px solid var(--border); }
+  .process-flow { display: flex; flex-direction: column; gap: 0; }
+  .process-phase { display: grid; grid-template-columns: 120px 1fr; gap: 0; border: 0.5px solid var(--border); margin-bottom: -0.5px; }
+  .phase-label {
+    background: var(--ink); color: var(--paper); padding: 1.5rem 1rem;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    writing-mode: horizontal-tb;
+  }
+  .phase-content { padding: 1.5rem 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+  .phase-step {
+    background: var(--paper-warm); border: 0.5px solid var(--border);
+    padding: 0.5rem 1rem; border-radius: 2px; font-size: 0.82rem; color: var(--ink);
+  }
+  .phase-arrow { color: var(--ink-light); font-size: 0.8rem; }
+
+  /* SKILLS */
+  #skills { background: var(--ink); color: var(--paper); border-top: 0.5px solid var(--border); }
+  #skills .section-label { color: var(--gold); }
+  #skills .section-label::before { background: var(--gold); }
+  #skills .section-title { color: var(--paper); }
+  #skills .section-sub { color: rgba(247,245,240,0.6); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(247,245,240,0.1); border: 0.5px solid rgba(247,245,240,0.1); }
+  .skill-group { padding: 2rem; background: var(--ink); }
+  .skill-group-title { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+  .skill-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(247,245,240,0.08); }
+  .skill-name { font-size: 0.85rem; color: rgba(247,245,240,0.8); }
+  .skill-bar-wrap { width: 80px; height: 3px; background: rgba(247,245,240,0.1); border-radius: 2px; }
+  .skill-bar { height: 100%; background: var(--gold); border-radius: 2px; }
+
+  /* CONTACT */
+  #contact { background: var(--paper); border-top: 0.5px solid var(--border); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); }
+  .contact-label { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); min-width: 90px; padding-top: 0.1rem; }
+  .contact-val { font-size: 0.9rem; color: var(--ink); }
+  .contact-val a { color: var(--accent); text-decoration: none; }
+  .availability-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent-light); color: var(--accent);
+    padding: 0.5rem 1rem; border-radius: 2px; font-size: 0.78rem; font-weight: 500;
+    margin-top: 2rem;
+  }
+  .avail-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 3rem; border-top: 0.5px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; color: var(--ink-light);
+  }
+  footer span { font-family: 'DM Mono', monospace; font-size: 0.68rem; }
+
+  /* DISCLAIMER */
+  .disclaimer-bar {
+    background: #fffbea; border-bottom: 0.5px solid #e0d5a0;
+    padding: 0.6rem 3rem; font-size: 0.72rem; color: #7a6f3a; text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* ANIMATE */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .cases-grid, .artifacts-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
+    .story-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="disclaimer-bar">
+  All case studies are illustrative and based on real project experience. Client names, patient data, and confidential information have been anonymised in compliance with NHS and Capgemini data governance policies.
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">Arunima Banerjee</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#artifacts">Artifacts</a></li>
+    <li><a href="#dashboards">Dashboards</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Business Analyst Portfolio</div>
+    <h1 class="hero-name">Arunima<br>Banerjee</h1>
+    <p class="hero-title">BCS Certified Business Analyst · 3+ Years · NHS & Banking</p>
+    <p class="hero-bio">
+      I turn messy business problems into structured, data-backed solutions. Across NHS Sheffield and Capgemini's banking practice, I've led requirements engineering, built Power BI dashboards, and automated workflows that people actually use.
+    </p>
+    <div class="hero-tags">
+      <span class="tag accent">BCS Certified Practitioner</span>
+      <span class="tag">SQL</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">Agile / Scrum</span>
+      <span class="tag">NHS</span>
+      <span class="tag">BFSI</span>
+      <span class="tag">Open to India & Remote</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View case studies</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years of experience</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Dashboards delivered</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Process efficiency gain</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2</div>
+        <div class="stat-label">BCS certifications</div>
+      </div>
+    </div>
+    <div class="cert-strip">
+      <div class="cert-item"><span class="cert-dot"></span> BCS Business Analysis Practitioner V5.1 — 2025</div>
+      <div class="cert-item"><span class="cert-dot"></span> BCS Business Analysis Foundation V4.0 — 2025</div>
+      <div class="cert-item"><span class="cert-dot"></span> AI Micro-Certification, Product School — 2026</div>
+      <div class="cert-item"><span class="cert-dot"></span> PwC Switzerland Power BI Job Simulation — 2024</div>
+      <div class="cert-item"><span class="cert-dot"></span> MSc Management (International Business), University of Sheffield — Merit</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="section-label">Case studies</div>
+  <h2 class="section-title">Selected work</h2>
+  <p class="section-sub">Four projects spanning healthcare systems and digital banking transformation. All data anonymised.</p>
+  <div class="cases-grid">
+
+    <div class="case-card fade-up" onclick="openModal('modal1')">
+      <span class="case-num">01 / 04</span>
+      <div class="case-domain">NHS Sheffield Teaching Hospitals</div>
+      <h3 class="case-title">Patient Referral Workflow Automation</h3>
+      <p class="case-desc">Led end-to-end requirements gathering and process redesign to automate a fragmented manual referral pathway across clinical and operational stakeholders.</p>
+      <div class="case-metrics">
+        <span class="metric-pill">+30% process transparency</span>
+        <span class="metric-pill">↓ manual effort</span>
+      </div>
+      <div class="case-tools">
+        <span class="tool-tag">Power BI</span><span class="tool-tag">Excel</span><span class="tool-tag">MS Visio</span><span class="tool-tag">Stakeholder workshops</span>
+      </div>
+    </div>
+
+    <div class="case-card fade-up" onclick="openModal('modal2')">
+      <span class="case-num">02 / 04</span>
+      <div class="case-domain">NHS Sheffield Teaching Hospitals</div>
+      <h3 class="case-title">SLA Performance Dashboard Suite</h3>
+      <p class="case-desc">Designed and maintained 5+ Power BI dashboards tracking patient services KPIs — enabling data-driven decisions that improved SLA performance by 15%.</p>
+      <div class="case-metrics">
+        <span class="metric-pill">+15% SLA performance</span>
+        <span class="metric-pill">5+ dashboards</span>
+      </div>
+      <div class="case-tools">
+        <span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">KPI design</span><span class="tool-tag">Excel</span>
+      </div>
+    </div>
+
+    <div class="case-card fade-up" onclick="openModal('modal3')">
+      <span class="case-num">03 / 04</span>
+      <div class="case-domain">Capgemini — Banking Client (UK)</div>
+      <h3 class="case-title">Digital Banking Transformation — BRD & UAT</h3>
+      <p class="case-desc">Authored end-to-end requirements documentation (BRS → BRD → FRD → Test Cases) for a core digital transformation programme, reducing post-release defects by 25%.</p>
+      <div class="case-metrics">
+        <span class="metric-pill">↓25% post-release defects</span>
+        <span class="metric-pill">+20% sprint predictability</span>
+      </div>
+      <div class="case-tools">
+        <span class="tool-tag">Jira</span><span class="tool-tag">Confluence</span><span class="tool-tag">SQL</span><span class="tool-tag">BRD/FRD</span>
+      </div>
+    </div>
+
+    <div class="case-card fade-up" onclick="openModal('modal4')">
+      <span class="case-num">04 / 04</span>
+      <div class="case-domain">NHS Sheffield Teaching Hospitals</div>
+      <h3 class="case-title">Root Cause Analysis — Service Quality Initiative</h3>
+      <p class="case-desc">Structured RCA across 100+ service issues using data validation frameworks, identifying systemic gaps and driving operational improvements across patient-facing teams.</p>
+      <div class="case-metrics">
+        <span class="metric-pill">100+ issues analysed</span>
+        <span class="metric-pill">↑ data accuracy</span>
+      </div>
+      <div class="case-tools">
+        <span class="tool-tag">Root cause analysis</span><span class="tool-tag">Data validation</span><span class="tool-tag">Excel</span><span class="tool-tag">SQL</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal1">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+      <div class="case-domain">NHS Sheffield Teaching Hospitals · Illustrative Case Study</div>
+      <h2 class="case-title" style="margin-top:0.5rem;">Patient Referral Workflow Automation</h2>
+    </div>
+    <div class="modal-body">
+      <div class="story-grid">
+        <div class="story-cell"><div class="story-cell-label">Situation</div><div class="story-cell-text">A fragmented, largely manual referral pathway spanning 4 clinical departments with no unified tracking or SLA visibility.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Task</div><div class="story-cell-text">Lead requirements gathering and design a TO-BE automated workflow in collaboration with clinical leads, operations, and IT.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Action</div><div class="story-cell-text">Facilitated 6 stakeholder workshops, mapped AS-IS and TO-BE processes in MS Visio, produced FRD, and oversaw implementation sprints.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Result</div><div class="story-cell-text">30% increase in process transparency, measurable reduction in manual hand-off errors, and improved SLA compliance tracking.</div></div>
+      </div>
+      <div class="modal-section-title">What I delivered</div>
+      <ul class="outcome-list">
+        <li>AS-IS / TO-BE process maps documenting the full referral lifecycle across 4 departments</li>
+        <li>Functional Requirements Document (FRD) covering 40+ requirements with acceptance criteria</li>
+        <li>Stakeholder RACI matrix and communication plan for 12 stakeholders</li>
+        <li>Post-implementation review report with KPI baseline vs. improved metrics</li>
+      </ul>
+      <div class="modal-section-title">Tools & methods</div>
+      <p>MS Visio (process mapping) · Power BI (tracking dashboard) · Excel (data analysis) · Agile sprint facilitation · Workshop design</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal2">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+      <div class="case-domain">NHS Sheffield Teaching Hospitals · Illustrative Case Study</div>
+      <h2 class="case-title" style="margin-top:0.5rem;">SLA Performance Dashboard Suite</h2>
+    </div>
+    <div class="modal-body">
+      <div class="story-grid">
+        <div class="story-cell"><div class="story-cell-label">Situation</div><div class="story-cell-text">Clinical and operational teams had no single source of truth for SLA performance — decisions were based on outdated weekly exports.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Task</div><div class="story-cell-text">Design, build, and maintain a suite of dashboards enabling real-time KPI tracking for patient services leadership.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Action</div><div class="story-cell-text">Gathered requirements from 8 stakeholders, defined 15 KPIs, built 5 Power BI dashboards pulling from SQL data sources, with automated refresh.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Result</div><div class="story-cell-text">SLA performance improved 15% within 2 quarters; leadership cited dashboards as enabling faster, more confident decisions.</div></div>
+      </div>
+      <div class="modal-section-title">What I delivered</div>
+      <ul class="outcome-list">
+        <li>KPI framework document defining 15 metrics with owners, thresholds, and data sources</li>
+        <li>5 Power BI dashboards: SLA overview, department-level, trend analysis, exception alerts, executive summary</li>
+        <li>SQL queries for data extraction and validation across 3 integrated systems</li>
+        <li>Dashboard user guide and training delivered to 20+ clinical managers</li>
+      </ul>
+      <div class="modal-section-title">Tools & methods</div>
+      <p>Power BI · SQL · Excel · KPI framework design · Stakeholder requirements interviews · Data validation</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal3">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal3')">✕</button>
+      <div class="case-domain">Capgemini — Banking Client (UK) · Illustrative Case Study</div>
+      <h2 class="case-title" style="margin-top:0.5rem;">Digital Banking Transformation — BRD & UAT</h2>
+    </div>
+    <div class="modal-body">
+      <div class="story-grid">
+        <div class="story-cell"><div class="story-cell-label">Situation</div><div class="story-cell-text">A UK retail bank undergoing core digital transformation with misaligned requirements between UK business teams and India-based development.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Task</div><div class="story-cell-text">Bridge the gap as BA: own end-to-end requirements documentation and UAT governance across a cross-geographical team.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Action</div><div class="story-cell-text">Authored BRS, BRD, FRD, and 200+ test cases. Conducted gap analysis in each sprint, led UAT cycles, and used SQL for data reconciliation.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Result</div><div class="story-cell-text">Post-release defects reduced 25%. Sprint predictability improved 20%. Requirements traceability achieved from business need through UAT sign-off.</div></div>
+      </div>
+      <div class="modal-section-title">What I delivered</div>
+      <ul class="outcome-list">
+        <li>Business Requirements Specification (BRS) covering 3 workstreams</li>
+        <li>Business Requirements Document (BRD) and Functional Requirements Document (FRD)</li>
+        <li>200+ detailed test cases with pass/fail criteria and defect log integration in Jira</li>
+        <li>Gap analysis and impact assessment reports for each sprint validation cycle</li>
+        <li>SQL data validation scripts for reconciliation across integrated banking systems</li>
+      </ul>
+      <div class="modal-section-title">Tools & methods</div>
+      <p>Jira · Confluence · SQL · Agile/Scrum · BRD/FRD authoring · UAT oversight · API regression testing</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal4">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal4')">✕</button>
+      <div class="case-domain">NHS Sheffield Teaching Hospitals · Illustrative Case Study</div>
+      <h2 class="case-title" style="margin-top:0.5rem;">Root Cause Analysis — Service Quality Initiative</h2>
+    </div>
+    <div class="modal-body">
+      <div class="story-grid">
+        <div class="story-cell"><div class="story-cell-label">Situation</div><div class="story-cell-text">Recurring service issues flagged in patient services with no structured framework to identify root causes or track resolution.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Task</div><div class="story-cell-text">Design and execute a structured RCA programme across 100+ logged issues, categorise patterns, and deliver actionable recommendations.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Action</div><div class="story-cell-text">Applied fishbone diagrams and 5-Why frameworks. Used SQL and Excel to validate data accuracy and identify systemic vs. one-off failures.</div></div>
+        <div class="story-cell"><div class="story-cell-label">Result</div><div class="story-cell-text">Identified 3 systemic failure categories, improved data accuracy, and delivered a prioritised improvement roadmap adopted by operations leadership.</div></div>
+      </div>
+      <div class="modal-section-title">What I delivered</div>
+      <ul class="outcome-list">
+        <li>RCA framework document with fishbone templates and 5-Why methodology guide</li>
+        <li>Issue categorisation report across 100+ service incidents</li>
+        <li>SQL-validated data accuracy audit with findings report</li>
+        <li>Prioritised improvement roadmap with quick wins vs. long-term fixes</li>
+      </ul>
+      <div class="modal-section-title">Tools & methods</div>
+      <p>Root cause analysis (fishbone / 5-Why) · SQL · Excel · Data validation · Continuous improvement frameworks</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARTIFACTS -->
+<section id="artifacts">
+  <div class="section-label">Sample artifacts</div>
+  <h2 class="section-title">BA deliverables</h2>
+  <p class="section-sub">Representative examples of the documentation and outputs I produce. Templates available on request.</p>
+  <div class="artifacts-grid">
+    <div class="artifact-card fade-up">
+      <div class="artifact-icon">📄</div>
+      <div class="artifact-type">Requirements</div>
+      <div class="artifact-name">Business Requirements Document (BRD)</div>
+      <p class="artifact-desc">Structured BRD template covering scope, functional requirements, constraints, assumptions, and acceptance criteria — used across NHS and banking projects.</p>
+      <button class="artifact-btn" onclick="alert('Full BRD template available on request — contact via the form below.')">Request sample →</button>
+    </div>
+    <div class="artifact-card fade-up">
+      <div class="artifact-icon">📊</div>
+      <div class="artifact-type">Analytics</div>
+      <div class="artifact-name">Power BI Dashboard — KPI Framework</div>
+      <p class="artifact-desc">Illustrative KPI dashboard layout showcasing SLA tracking, trend analysis, and exception flagging — modelled on NHS patient services reporting.</p>
+      <button class="artifact-btn" onclick="document.getElementById('dashboards').scrollIntoView({behavior:'smooth'})">View live dashboard ↓</button>
+    </div>
+    <div class="artifact-card fade-up">
+      <div class="artifact-icon">🗺️</div>
+      <div class="artifact-type">Process</div>
+      <div class="artifact-name">AS-IS / TO-BE Process Maps</div>
+      <p class="artifact-desc">MS Visio swim-lane process maps showing patient referral workflow before and after automation — illustrating gap analysis and redesign methodology.</p>
+      <button class="artifact-btn" onclick="alert('Process map samples available on request.')">Request sample →</button>
+    </div>
+    <div class="artifact-card fade-up">
+      <div class="artifact-icon">✅</div>
+      <div class="artifact-type">Testing</div>
+      <div class="artifact-name">UAT Test Case Pack</div>
+      <p class="artifact-desc">Sample test case documentation with test scenarios, expected vs. actual results, defect log linkage, and sign-off tracking — from the Capgemini banking project.</p>
+      <button class="artifact-btn" onclick="alert('Test case template available on request.')">Request sample →</button>
+    </div>
+    <div class="artifact-card fade-up">
+      <div class="artifact-icon">📖</div>
+      <div class="artifact-type">User stories</div>
+      <div class="artifact-name">User Story Backlog with Acceptance Criteria</div>
+      <p class="artifact-desc">Agile user story format with structured acceptance criteria, priority scoring, and sprint mapping — aligned to BCS best practice for requirements traceability.</p>
+      <button class="artifact-btn" onclick="alert('User story backlog sample available on request.')">Request sample →</button>
+    </div>
+    <div class="artifact-card fade-up">
+      <div class="artifact-icon">🔍</div>
+      <div class="artifact-type">Analysis</div>
+      <div class="artifact-name">Gap Analysis & Impact Assessment</div>
+      <p class="artifact-desc">Structured gap analysis template used during sprint validation — mapping current state vs. target state with risk, impact, and mitigation columns.</p>
+      <button class="artifact-btn" onclick="alert('Gap analysis template available on request.')">Request sample →</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- DASHBOARDS -->
+<section id="dashboards" style="padding:0; background:#fff; border-top:0.5px solid var(--border);">
+  <div style="padding:4rem 3rem 2rem;">
+    <div class="section-label">Live dashboards</div>
+    <h2 class="section-title">NHS Oral Surgery — Referral Pathway</h2>
+    <p class="section-sub">Interactive AS-IS vs TO-BE performance dashboard. Built to demonstrate Power BI–style KPI reporting, SLA tracking, and impact measurement from the patient referral automation project. All data anonymised.</p>
+  </div>
+  <div class="db-section" style="padding:0 3rem 4rem;">
+    <style>
+.db-section 
+  :root {
+    --ink: #1a1a18; --ink-m: #6b6b65; --ink-l: #a8a89f;
+    --paper: #f7f5f0; --paper-w: #ede9e0; --white: #ffffff;
+    --border: rgba(26,26,24,0.12);
+    --red: #A32D2D; --red-bg: #FCEBEB; --red-mid: #E24B4A;
+    --green: #0F6E56; --green-bg: #EAF3DE; --green-mid: #1D9E75;
+    --blue: #378ADD; --amber: #EF9F27; --amber-dark: #633806;
+    --olive: #639922;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  .db-section-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.6; }
+  .db-section .db-header { background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .db-section .header-title { font-size: 1rem; font-weight: 600; }
+  .db-section .header-sub { font-size: 0.75rem; color: var(--ink-m); margin-top: 2px; }
+  .db-section .disclaimer { background: #fffbea; border-bottom: 1px solid #e0d5a0; padding: 0.5rem 2rem; font-size: 0.72rem; color: #7a6f3a; }
+  .db-section .tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--white); padding: 0 2rem; }
+  .db-section .tab { padding: 0.75rem 1.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer; border: none; background: transparent; border-bottom: 2.5px solid transparent; color: var(--ink-m); transition: all 0.15s; }
+  .db-section .tab.asis-active { color: var(--red); border-bottom-color: var(--red); }
+  .db-section .tab.tobe-active { color: var(--green); border-bottom-color: var(--green); }
+  .db-section .dash { display: none; padding: 1.5rem 2rem 2rem; }
+  .db-section .dash.active { display: block; }
+  .db-section .banner { border-radius: 8px; padding: 0.85rem 1.25rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .db-section .banner-red { background: var(--red-bg); border: 1px solid #F09595; }
+  .db-section .banner-green { background: var(--green-bg); border: 1px solid #97C459; }
+  .db-section .banner-title { font-size: 0.82rem; font-weight: 600; }
+  .db-section .banner-title-red { color: #791F1F; }
+  .db-section .banner-title-green { color: #27500A; }
+  .db-section .banner-sub { font-size: 0.72rem; color: var(--ink-m); margin-top: 2px; }
+  .db-section .badge { display: inline-block; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600; }
+  .db-section .badge-red { background: var(--red-bg); color: #791F1F; border: 1px solid #F09595; }
+  .db-section .badge-green { background: var(--green-bg); color: #27500A; border: 1px solid #97C459; }
+  .db-section .badge-amber { background: #FAEEDA; color: var(--amber-dark); }
+  .db-section .section-lbl { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-m); font-weight: 600; margin-bottom: 0.6rem; margin-top: 0.25rem; }
+  .db-section .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-bottom: 1.25rem; }
+  .db-section .kpi { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.1rem; }
+  .db-section .kpi-label { font-size: 0.72rem; color: var(--ink-m); margin-bottom: 6px; }
+  .db-section .kpi-val { font-size: 1.5rem; font-weight: 600; line-height: 1; }
+  .db-section .kpi-sub { font-size: 0.7rem; margin-top: 4px; }
+  .db-section .red { color: var(--red); } .green { color: var(--green); } .muted { color: var(--ink-m); }
+  .db-section .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 1.25rem; }
+  .db-section .chart-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+  .db-section .chart-title { font-size: 0.82rem; font-weight: 600; margin-bottom: 2px; }
+  .db-section .chart-sub { font-size: 0.7rem; color: var(--ink-m); margin-bottom: 0.75rem; }
+  .db-section .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; font-size: 0.72rem; color: var(--ink-m); }
+  .db-section .ld { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 3px; vertical-align: middle; }
+  .db-section .ch-wrap { position: relative; }
+  .db-section .table-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; }
+  .db-section table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .db-section th { background: var(--paper-w); padding: 0.6rem 0.9rem; text-align: left; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-m); border-bottom: 1px solid var(--border); }
+  .db-section td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border); }
+  .db-section tr:last-child td { border-bottom: none; }
+  .db-section tr.total-row td { font-weight: 600; background: var(--paper); }
+  .db-section .impact-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-bottom: 1.25rem; }
+  .db-section .impact-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; }
+  .db-section .impact-from { font-size: 0.7rem; color: var(--ink-m); }
+  .db-section .impact-old { font-size: 0.82rem; font-weight: 600; color: var(--red); margin: 2px 0; }
+  .db-section .impact-arrow { font-size: 0.78rem; color: var(--green); font-weight: 600; margin: 3px 0; }
+  .db-section .impact-new { font-size: 1rem; font-weight: 700; color: var(--green); }
+  .db-section .impact-lbl { font-size: 0.68rem; color: var(--ink-m); margin-top: 3px; }
+  .db-section .footnote { font-size: 0.7rem; color: var(--ink-l); border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.5rem; }
+  @media (max-width: 700px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .charts-row { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    header, .tabs, .dash { padding-left: 1rem; padding-right: 1rem; }
+  }
+
+    .db-section .db-header { background: var(--paper-warm); border-bottom: 1px solid var(--border); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; border-radius: 8px 8px 0 0; }
+    .db-section { background: #fff; border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; }
+    </style>
+    <div style="background:#fffbea;border:0.5px solid #e0d5a0;padding:0.5rem 1.25rem;font-size:0.72rem;color:#7a6f3a;border-radius:8px 8px 0 0;">All data is illustrative and anonymised. Modelled on NHS Oral Surgery referral pathway benchmarks. Illustrative portfolio case study.</div>
+    
+
+<div class="db-header">
+  <div>
+    <div class="header-title">NHS Dental Hospital — Oral Surgery Referral Pathway</div>
+    <div class="header-sub">AS-IS vs TO-BE Performance Dashboard &nbsp;·&nbsp; SLA target: 12 weeks (84 days) to first OPA</div>
+  </div>
+  <span class="badge badge-amber">Illustrative case study</span>
+</div>
+
+<div class="tabs">
+  <button class="tab asis-active" id="tab-asis" onclick="switchTab('asis')">AS-IS — before automation (Apr 2024)</button>
+  <button class="tab" id="tab-tobe" onclick="switchTab('tobe')">TO-BE — after automation (Oct 2024)</button>
+</div>
+
+<!-- ===== AS-IS ===== -->
+<div class="dash active" id="dash-asis">
+  <div class="banner banner-red">
+    <div>
+      <div class="banner-title banner-title-red">Manual referral pathway &nbsp;·&nbsp; Oral Surgery &nbsp;·&nbsp; April 2024</div>
+      <div class="banner-sub">No automated tracking &nbsp;·&nbsp; Manual triage &nbsp;·&nbsp; Letter generation 5–7 day lag &nbsp;·&nbsp; 4 admin touchpoints</div>
+    </div>
+    <span class="badge badge-red">SLA BREACHED</span>
+  </div>
+
+  <div class="section-lbl">Key performance indicators</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Avg referrals / week</div><div class="kpi-val">47</div><div class="kpi-sub muted">Monthly total: ~188</div></div>
+    <div class="kpi"><div class="kpi-label">Avg wait — first OPA</div><div class="kpi-val red">112 days</div><div class="kpi-sub red">28 days over SLA</div></div>
+    <div class="kpi"><div class="kpi-label">SLA compliance rate</div><div class="kpi-val red">54%</div><div class="kpi-sub red">Target: ≥85%</div></div>
+    <div class="kpi"><div class="kpi-label">Referrals breaching SLA</div><div class="kpi-val red">86</div><div class="kpi-sub red">of 188 this month</div></div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">Referrals received vs first OPA booked</div>
+      <div class="chart-sub">Weekly volume — April 2024</div>
+      <div class="legend"><span><span class="ld" style="background:#378ADD"></span>Referrals received</span><span><span class="ld" style="background:#E24B4A"></span>First OPA booked</span></div>
+      <div class="ch-wrap" style="height:200px"><canvas id="c1" role="img" aria-label="Grouped bar chart. Referrals: 44, 49, 51, 44. OPA booked: 28, 31, 35, 28. Large gap shows booking shortfall."></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Wait time distribution (days to first OPA)</div>
+      <div class="chart-sub">Patient cohort — April 2024</div>
+      <div class="legend"><span><span class="ld" style="background:#639922"></span>Within SLA (&le;84 days)</span><span><span class="ld" style="background:#E24B4A"></span>SLA breached (&gt;84 days)</span></div>
+      <div class="ch-wrap" style="height:200px"><canvas id="c2" role="img" aria-label="Bar chart. 0-42 days: 14, 43-84 days: 88, 85-112 days: 58, 113+ days: 28 patients."></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-lbl">Weekly referral pathway breakdown — April 2024</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Week</th><th>Referrals received</th><th>Triaged ≤5 days</th><th>Letter sent</th><th>First OPA booked</th><th>Avg wait (days)</th><th>SLA status</th></tr></thead>
+      <tbody>
+        <tr><td>Week 1 (1–7 Apr)</td><td>44</td><td>31 (70%)</td><td>26 (59%)</td><td>28</td><td>118</td><td><span class="badge badge-red">Breached</span></td></tr>
+        <tr><td>Week 2 (8–14 Apr)</td><td>49</td><td>34 (69%)</td><td>28 (57%)</td><td>31</td><td>109</td><td><span class="badge badge-red">Breached</span></td></tr>
+        <tr><td>Week 3 (15–21 Apr)</td><td>51</td><td>38 (75%)</td><td>32 (63%)</td><td>35</td><td>107</td><td><span class="badge badge-red">Breached</span></td></tr>
+        <tr><td>Week 4 (22–30 Apr)</td><td>44</td><td>30 (68%)</td><td>25 (57%)</td><td>28</td><td>116</td><td><span class="badge badge-red">Breached</span></td></tr>
+        <tr class="total-row"><td>Monthly total / avg</td><td>188</td><td>133 (71%)</td><td>111 (59%)</td><td>122 (65%)</td><td>112 days</td><td><span class="badge badge-red">54% compliant</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">Root cause analysis — SLA breach contributors</div>
+      <div class="chart-sub">Identified via fishbone & 5-Why methodology</div>
+      <div class="ch-wrap" style="height:190px"><canvas id="c3" role="img" aria-label="Horizontal bar chart. Manual triage delay 38%, No automated tracking 27%, Letter lag 19%, Admin bottleneck 16%."></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">SLA compliance trend — rolling 4 weeks</div>
+      <div class="chart-sub">Declining compliance before automation</div>
+      <div class="ch-wrap" style="height:190px"><canvas id="c4" role="img" aria-label="Line chart. Compliance declining: 61%, 57%, 54%, 48%."></canvas></div>
+    </div>
+  </div>
+  <div class="footnote">Illustrative data based on NHS Oral Surgery benchmarks. All patient data anonymised. Case study created by Arunima Banerjee — Business Analyst Portfolio 2026.</div>
+</div>
+
+<!-- ===== TO-BE ===== -->
+<div class="dash" id="dash-tobe">
+  <div class="banner banner-green">
+    <div>
+      <div class="banner-title banner-title-green">Automated referral pathway &nbsp;·&nbsp; Oral Surgery &nbsp;·&nbsp; October 2024</div>
+      <div class="banner-sub">Automated triage routing &nbsp;·&nbsp; Same-day letter generation &nbsp;·&nbsp; Real-time SLA tracking &nbsp;·&nbsp; Reduced admin touchpoints</div>
+    </div>
+    <span class="badge badge-green">SLA MET</span>
+  </div>
+
+  <div class="section-lbl">Key performance indicators</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Avg referrals / week</div><div class="kpi-val">51</div><div class="kpi-sub muted">Monthly total: ~204 (+8%)</div></div>
+    <div class="kpi"><div class="kpi-label">Avg wait — first OPA</div><div class="kpi-val green">71 days</div><div class="kpi-sub green">13 days within SLA</div></div>
+    <div class="kpi"><div class="kpi-label">SLA compliance rate</div><div class="kpi-val green">87%</div><div class="kpi-sub green">Target ≥85% — exceeded</div></div>
+    <div class="kpi"><div class="kpi-label">Referrals breaching SLA</div><div class="kpi-val green">27</div><div class="kpi-sub green">of 204 this month (↓69%)</div></div>
+  </div>
+
+  <div class="section-lbl">Impact summary — AS-IS vs TO-BE</div>
+  <div class="impact-grid">
+    <div class="impact-card"><div class="impact-from">Average wait time</div><div class="impact-old">112 days</div><div class="impact-arrow">↓ 37%</div><div class="impact-new">71 days</div><div class="impact-lbl">13 days inside SLA</div></div>
+    <div class="impact-card"><div class="impact-from">SLA compliance</div><div class="impact-old">54%</div><div class="impact-arrow">↑ +33 percentage points</div><div class="impact-new">87%</div><div class="impact-lbl">Target exceeded</div></div>
+    <div class="impact-card"><div class="impact-from">Triage within 5 days</div><div class="impact-old">71%</div><div class="impact-arrow">↑ +25 percentage points</div><div class="impact-new">96%</div><div class="impact-lbl">Automated routing</div></div>
+    <div class="impact-card"><div class="impact-from">Letter generation lag</div><div class="impact-old">5–7 days manual</div><div class="impact-arrow">↓ 80%</div><div class="impact-new">Same day</div><div class="impact-lbl">Auto-triggered on triage</div></div>
+    <div class="impact-card"><div class="impact-from">SLA breach count</div><div class="impact-old">86 / month</div><div class="impact-arrow">↓ 69%</div><div class="impact-new">27 / month</div><div class="impact-lbl">59 fewer breaches</div></div>
+    <div class="impact-card"><div class="impact-from">Process transparency</div><div class="impact-old">Low — manual tracking</div><div class="impact-arrow">↑ +30%</div><div class="impact-new">High</div><div class="impact-lbl">Real-time dashboard</div></div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">Referrals received vs first OPA booked</div>
+      <div class="chart-sub">Weekly volume — October 2024 (post-automation)</div>
+      <div class="legend"><span><span class="ld" style="background:#378ADD"></span>Referrals received</span><span><span class="ld" style="background:#1D9E75"></span>First OPA booked</span></div>
+      <div class="ch-wrap" style="height:200px"><canvas id="c5" role="img" aria-label="Grouped bar chart. Referrals: 50, 52, 53, 49. OPA booked: 47, 50, 51, 46. Gap is now minimal."></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Wait time distribution (days to first OPA)</div>
+      <div class="chart-sub">Patient cohort — October 2024</div>
+      <div class="legend"><span><span class="ld" style="background:#639922"></span>Within SLA (&le;84 days)</span><span><span class="ld" style="background:#E24B4A"></span>SLA breached (&gt;84 days)</span></div>
+      <div class="ch-wrap" style="height:200px"><canvas id="c6" role="img" aria-label="Bar chart. 0-42 days: 52, 43-84 days: 125, 85-112 days: 22, 113+ days: 5 patients."></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-lbl">Weekly referral pathway breakdown — October 2024</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Week</th><th>Referrals received</th><th>Triaged ≤5 days</th><th>Letter sent</th><th>First OPA booked</th><th>Avg wait (days)</th><th>SLA status</th></tr></thead>
+      <tbody>
+        <tr><td>Week 1 (1–7 Oct)</td><td>50</td><td>48 (96%)</td><td>48 (96%)</td><td>47</td><td>74</td><td><span class="badge badge-green">Met</span></td></tr>
+        <tr><td>Week 2 (8–14 Oct)</td><td>52</td><td>50 (96%)</td><td>50 (96%)</td><td>50</td><td>68</td><td><span class="badge badge-green">Met</span></td></tr>
+        <tr><td>Week 3 (15–21 Oct)</td><td>53</td><td>51 (96%)</td><td>51 (96%)</td><td>51</td><td>70</td><td><span class="badge badge-green">Met</span></td></tr>
+        <tr><td>Week 4 (22–31 Oct)</td><td>49</td><td>47 (96%)</td><td>47 (96%)</td><td>46</td><td>72</td><td><span class="badge badge-green">Met</span></td></tr>
+        <tr class="total-row"><td>Monthly total / avg</td><td>204</td><td>196 (96%)</td><td>196 (96%)</td><td>194 (95%)</td><td>71 days</td><td><span class="badge badge-green">87% compliant</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-card" style="margin-bottom:1.25rem;">
+    <div class="chart-title">SLA compliance comparison — AS-IS vs TO-BE</div>
+    <div class="chart-sub">April 2024 (manual) vs October 2024 (automated) — week by week</div>
+    <div class="legend">
+      <span><span class="ld" style="background:#E24B4A"></span>AS-IS (manual)</span>
+      <span><span class="ld" style="background:#1D9E75;border:1.5px dashed #0F6E56"></span>TO-BE (automated)</span>
+      <span><span class="ld" style="background:#EF9F27"></span>SLA target (85%)</span>
+    </div>
+    <div class="ch-wrap" style="height:220px"><canvas id="c7" role="img" aria-label="Line chart. AS-IS declines from 61% to 48%. TO-BE rises from 84% to 89%. Target line at 85%."></canvas></div>
+  </div>
+
+  <div class="footnote">Illustrative data based on NHS Oral Surgery benchmarks. All patient data anonymised. Automation implemented Q3 2024 following BA-led workflow redesign. Case study by Arunima Banerjee — Business Analyst Portfolio 2026.</div>
+</div>
+
+<script>
+function switchTab(id) {
+  ['asis','tobe'].forEach(t => {
+    document.getElementById('dash-'+t).classList.remove('active');
+    document.getElementById('tab-'+t).classList.remove('asis-active','tobe-active');
+  });
+  document.getElementById('dash-'+id).classList.add('active');
+  document.getElementById('tab-'+id).classList.add(id+'-active');
+}
+
+const weeks = ['Week 1','Week 2','Week 3','Week 4'];
+const base = { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+  scales:{x:{ticks:{font:{size:11}},grid:{display:false}}, y:{ticks:{font:{size:11}},grid:{color:'rgba(128,128,128,0.1)'}}} };
+
+new Chart(document.getElementById('c1'),{type:'bar',data:{labels:weeks,datasets:[
+  {label:'Referrals',data:[44,49,51,44],backgroundColor:'#378ADD'},
+  {label:'OPA booked',data:[28,31,35,28],backgroundColor:'#E24B4A'}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,suggestedMax:60}}}});
+
+new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['0–42 days','43–84 days','85–112 days','113+ days'],datasets:[
+  {label:'Patients',data:[14,88,58,28],backgroundColor:['#639922','#639922','#E24B4A','#E24B4A']}
+]},options:base});
+
+new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Manual triage delay','No automated tracking','Letter generation lag','Admin bottleneck'],datasets:[
+  {label:'% contribution',data:[38,27,19,16],backgroundColor:'#E24B4A'}
+]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{x:{ticks:{callback:v=>v+'%',font:{size:11}},grid:{color:'rgba(128,128,128,0.1)'}},y:{ticks:{font:{size:10}},grid:{display:false}}}}});
+
+new Chart(document.getElementById('c4'),{type:'line',data:{labels:weeks,datasets:[
+  {label:'Compliance %',data:[61,57,54,48],borderColor:'#E24B4A',backgroundColor:'rgba(226,75,74,0.08)',tension:0.3,pointRadius:4,fill:true}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,min:40,max:100,ticks:{callback:v=>v+'%',font:{size:11}}}}}});
+
+new Chart(document.getElementById('c5'),{type:'bar',data:{labels:weeks,datasets:[
+  {label:'Referrals',data:[50,52,53,49],backgroundColor:'#378ADD'},
+  {label:'OPA booked',data:[47,50,51,46],backgroundColor:'#1D9E75'}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,suggestedMax:60}}}});
+
+new Chart(document.getElementById('c6'),{type:'bar',data:{labels:['0–42 days','43–84 days','85–112 days','113+ days'],datasets:[
+  {label:'Patients',data:[52,125,22,5],backgroundColor:['#639922','#639922','#E24B4A','#E24B4A']}
+]},options:base});
+
+new Chart(document.getElementById('c7'),{type:'line',data:{labels:weeks,datasets:[
+  {label:'AS-IS',data:[61,57,54,48],borderColor:'#E24B4A',backgroundColor:'transparent',tension:0.3,pointRadius:4},
+  {label:'TO-BE',data:[84,87,89,88],borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.07)',tension:0.3,pointRadius:4,fill:true,borderDash:[6,3]},
+  {label:'SLA target',data:[85,85,85,85],borderColor:'#EF9F27',backgroundColor:'transparent',pointRadius:0,borderDash:[4,4]}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,min:40,max:100,ticks:{callback:v=>v+'%',font:{size:11}}}}}});
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+
+function switchTab(id) {
+  ['asis','tobe'].forEach(t => {
+    document.getElementById('dash-'+t).classList.remove('active');
+    document.getElementById('tab-'+t).classList.remove('asis-active','tobe-active');
+  });
+  document.getElementById('dash-'+id).classList.add('active');
+  document.getElementById('tab-'+id).classList.add(id+'-active');
+}
+
+const weeks = ['Week 1','Week 2','Week 3','Week 4'];
+const base = { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+  scales:{x:{ticks:{font:{size:11}},grid:{display:false}}, y:{ticks:{font:{size:11}},grid:{color:'rgba(128,128,128,0.1)'}}} };
+
+new Chart(document.getElementById('c1'),{type:'bar',data:{labels:weeks,datasets:[
+  {label:'Referrals',data:[44,49,51,44],backgroundColor:'#378ADD'},
+  {label:'OPA booked',data:[28,31,35,28],backgroundColor:'#E24B4A'}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,suggestedMax:60}}}});
+
+new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['0–42 days','43–84 days','85–112 days','113+ days'],datasets:[
+  {label:'Patients',data:[14,88,58,28],backgroundColor:['#639922','#639922','#E24B4A','#E24B4A']}
+]},options:base});
+
+new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Manual triage delay','No automated tracking','Letter generation lag','Admin bottleneck'],datasets:[
+  {label:'% contribution',data:[38,27,19,16],backgroundColor:'#E24B4A'}
+]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{x:{ticks:{callback:v=>v+'%',font:{size:11}},grid:{color:'rgba(128,128,128,0.1)'}},y:{ticks:{font:{size:10}},grid:{display:false}}}}});
+
+new Chart(document.getElementById('c4'),{type:'line',data:{labels:weeks,datasets:[
+  {label:'Compliance %',data:[61,57,54,48],borderColor:'#E24B4A',backgroundColor:'rgba(226,75,74,0.08)',tension:0.3,pointRadius:4,fill:true}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,min:40,max:100,ticks:{callback:v=>v+'%',font:{size:11}}}}}});
+
+new Chart(document.getElementById('c5'),{type:'bar',data:{labels:weeks,datasets:[
+  {label:'Referrals',data:[50,52,53,49],backgroundColor:'#378ADD'},
+  {label:'OPA booked',data:[47,50,51,46],backgroundColor:'#1D9E75'}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,suggestedMax:60}}}});
+
+new Chart(document.getElementById('c6'),{type:'bar',data:{labels:['0–42 days','43–84 days','85–112 days','113+ days'],datasets:[
+  {label:'Patients',data:[52,125,22,5],backgroundColor:['#639922','#639922','#E24B4A','#E24B4A']}
+]},options:base});
+
+new Chart(document.getElementById('c7'),{type:'line',data:{labels:weeks,datasets:[
+  {label:'AS-IS',data:[61,57,54,48],borderColor:'#E24B4A',backgroundColor:'transparent',tension:0.3,pointRadius:4},
+  {label:'TO-BE',data:[84,87,89,88],borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.07)',tension:0.3,pointRadius:4,fill:true,borderDash:[6,3]},
+  {label:'SLA target',data:[85,85,85,85],borderColor:'#EF9F27',backgroundColor:'transparent',pointRadius:0,borderDash:[4,4]}
+]},options:{...base,scales:{...base.scales,y:{...base.scales.y,min:40,max:100,ticks:{callback:v=>v+'%',font:{size:11}}}}}});
+
+    </script>
+  </div>
+</section>
+
+<!-- PROCESS MAP -->
+<section id="process">
+  <div class="section-label">How I work</div>
+  <h2 class="section-title">My BA methodology</h2>
+  <p class="section-sub">A structured, iterative approach grounded in BCS practice — from discovery through to post-implementation review.</p>
+  <div class="process-flow fade-up">
+    <div class="process-phase">
+      <div class="phase-label" style="background:#2d5a3d;">Discover</div>
+      <div class="phase-content">
+        <span class="phase-step">Stakeholder identification</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Workshop facilitation</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">AS-IS process mapping</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Pain point analysis</span>
+      </div>
+    </div>
+    <div class="process-phase">
+      <div class="phase-label" style="background:#3d6b4f;">Define</div>
+      <div class="phase-content">
+        <span class="phase-step">Requirements elicitation</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">BRS / BRD authoring</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Gap analysis</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Impact assessment</span>
+      </div>
+    </div>
+    <div class="process-phase">
+      <div class="phase-label" style="background:#4d7c62;">Design</div>
+      <div class="phase-content">
+        <span class="phase-step">TO-BE process maps</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">FRD & user stories</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Acceptance criteria</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Stakeholder sign-off</span>
+      </div>
+    </div>
+    <div class="process-phase">
+      <div class="phase-label" style="background:#5d8d75;">Deliver</div>
+      <div class="phase-content">
+        <span class="phase-step">Sprint facilitation</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">UAT test cases</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Defect management</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">UAT sign-off</span>
+      </div>
+    </div>
+    <div class="process-phase">
+      <div class="phase-label" style="background:#6d9e88;">Review</div>
+      <div class="phase-content">
+        <span class="phase-step">KPI dashboard reporting</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Root cause analysis</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Lessons learned</span>
+        <span class="phase-arrow">→</span>
+        <span class="phase-step">Continuous improvement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">Skills & tools</h2>
+  <p class="section-sub">Technical, analytical, and interpersonal capabilities developed across healthcare and banking environments.</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Analytics & reporting</div>
+      <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Excel (advanced)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">KPI framework design</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Data validation</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:87%"></div></div></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Business analysis</div>
+      <div class="skill-item"><span class="skill-name">Requirements engineering</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">BRD / FRD authoring</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Process mapping</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Root cause analysis</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">UAT & test management</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:83%"></div></div></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Tools & domains</div>
+      <div class="skill-item"><span class="skill-name">Jira & Confluence</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">MS Visio</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Agile / Scrum</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">NHS / Healthcare systems</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">BFSI / Digital banking</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <h2 class="section-title">Let's talk</h2>
+  <div class="contact-grid">
+    <div>
+      <p style="font-size:0.95rem;color:var(--ink-muted);margin-bottom:2rem;line-height:1.8;">I'm currently open to Business Analyst roles in India and remote. If you're hiring or want to discuss a project, I'd love to hear from you.</p>
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-val"><a href="mailto:arunimab2110@gmail.com">arunimab2110@gmail.com</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <span class="contact-val">+91 7278692019</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-val"><a href="https://linkedin.com/in/arunimab2110" target="_blank">linkedin.com/in/arunimab2110</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-val">India (open to remote globally)</span>
+      </div>
+      <div class="availability-badge">
+        <span class="avail-dot"></span>
+        Available for immediate start
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--paper-warm);padding:2rem;border:0.5px solid var(--border);border-radius:2px;">
+        <div style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:1.25rem;">What I'm looking for</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;gap:0.75rem;font-size:0.88rem;color:var(--ink-muted);"><span style="color:var(--accent);">→</span> Business Analyst roles (any domain)</div>
+          <div style="display:flex;gap:0.75rem;font-size:0.88rem;color:var(--ink-muted);"><span style="color:var(--accent);">→</span> Data Analyst or Product Analyst hybrid roles</div>
+          <div style="display:flex;gap:0.75rem;font-size:0.88rem;color:var(--ink-muted);"><span style="color:var(--accent);">→</span> India-based (Bangalore, Hyderabad, Pune, Delhi, Mumbai) or remote</div>
+          <div style="display:flex;gap:0.75rem;font-size:0.88rem;color:var(--ink-muted);"><span style="color:var(--accent);">→</span> MNCs, GCCs, consulting firms, or funded startups</div>
+          <div style="display:flex;gap:0.75rem;font-size:0.88rem;color:var(--ink-muted);"><span style="color:var(--accent);">→</span> Healthcare, BFSI, or digital transformation focus preferred</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Arunima Banerjee · Business Analyst Portfolio · 2026</span>
+  <span>All case studies are illustrative. Data anonymised.</span>
+</footer>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', e => { if (e.target === el) closeModal(el.id); });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
